@@ -1,8 +1,3 @@
-﻿namespace FactoryPattern.DTOs
-{
-    public class HealthStatus
-    {
-        public bool IsHealthy { get; set; }
-        public string Message { get; set; } = string.Empty;
-    }
-}
+﻿namespace FactoryPattern.DTOs;
+
+public record HealthStatus(bool IsHealthy, string Message);

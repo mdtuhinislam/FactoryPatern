@@ -10,11 +10,7 @@ namespace FactoryPattern.ExternalSystemManager
     {
         public DTOs.HealthStatus CheckHealth()
         {
-            return new DTOs.HealthStatus
-            {
-                IsHealthy = true,
-                Message = "NexusNGFramework is healthy"
-            };
+            return new DTOs.HealthStatus(true, "Nexus NG framework");
         }
     }
 }

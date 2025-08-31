@@ -1,27 +1,17 @@
 ﻿using FactoryPattern.ExternalSystemManager;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace FactoryPattern.HealthCheckupFactory
+namespace FactoryPattern.HealthCheckupFactory;
+
+internal class HealthCheckupFactoryManager
 {
-    internal class HealthCheckupFactoryManager
+    public static IExternalSystemManager GetHealthCheckupFactory(string factoryType)
     {
-        public static IExternalSystemManager GetHealthCheckupFactory(string factoryType)
+        return factoryType switch
         {
-            switch (factoryType)
-            {
-                case "reprocessing-db-context":
-                    return new ReprocessingDbContextManager();
-                case "hytrack-system-activate":
-                    return new HytrackSystemManager();
-                case "ng-framework-activate":
-                    return new HytrackSystemManager();
-                default:
-                    throw new ArgumentException("Invalid factory type");
-            }
-        }
+            "reprocessing-db-context" => new ReprocessingDbContextManager(),
+            "hytrack-system-activate" => new HytrackSystemManager(),
+            "ng-framework-activate" => new NexusNGFrameworkManager(),
+            _ => throw new ArgumentException("Invalid factory type"),
+        };
     }
 }

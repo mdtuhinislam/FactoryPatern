@@ -4,11 +4,7 @@
     {
         public DTOs.HealthStatus CheckHealth()
         {
-            return new DTOs.HealthStatus
-            {
-                IsHealthy = false,
-                Message = "HytrackSystem is healthy"
-            };
+            return new DTOs.HealthStatus(true, "Hytract is health");
         }
     }
 }

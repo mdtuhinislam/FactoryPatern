@@ -6,11 +6,7 @@ namespace FactoryPattern.ExternalSystemManager
     {
         public HealthStatus CheckHealth()
         {
-            return new HealthStatus
-            {
-                IsHealthy = true,
-                Message = "ReprocessingDbContext is healthy"
-            };
+            return new HealthStatus(false, "ReprocessingDbContext");
         }
     }
 }
